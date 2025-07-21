@@ -1,6 +1,6 @@
-# LSOM-BOPDEV-RUN
+# LSOM
 
-LSOM-BOPDEV-RUN is a modern, responsive React app built using Vite, TailwindCSS, and React Router. Designed for modular development, fast builds, and a scalable architecture.
+A modern, responsive React app built using Vite, TailwindCSS, and React Router. Designed for modular development, fast builds, and a scalable architecture.
 
 ## Project Structure
 
