@@ -23,19 +23,19 @@ README.md
 
 ## Tech Stack
 
-- ⚛️ React 19
-- 🛣️ React Router DOM 7
-- 🎨 TailwindCSS 3.4
-- ⚡ Vite 7
-- 🛠️ ESLint (Code quality)
-- 🔍 React Icons
+- React 19
+- React Router DOM 7
+- TailwindCSS 3.4
+- Vite 7
+- ESLint (Code quality)
+- React Icons
 
 ## Setup Instructions
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/your-username/LSOM-BOPDEV-RUN.git
-   cd LSOM-BOPDEV-RUN
+   git clone https://github.com/A-b-h-i-n-a-v-1-9/lsom
+   cd lsom
    ```
 2. **Install Dependencies**
    ```bash
@@ -60,11 +60,11 @@ npm run preview
 
 ## Key Features
 
-- ⚡ Blazing-fast Vite setup
-- 🎨 TailwindCSS for responsive UI
-- 🛣️ React Router for navigation
-- 📦 Modular, component-based architecture
-- 🏁 Sections: Hero, Gallery, Race Schedule, InfoSection
-- 🚀 Preloader component for initial loading
-- 🌙 Light/Dark mode support (if implemented)
-- 🛠️ Easy to extend and customize
+- Blazing-fast Vite setup
+- TailwindCSS for responsive UI
+- React Router for navigation
+- Modular, component-based architecture
+- Sections: Hero, Gallery, Race Schedule, InfoSection
+- Preloader component for initial loading
+- Light/Dark mode support (if implemented)
+- Easy to extend and customize
