@@ -11,7 +11,7 @@ export default function Footer() {
           <p className="text-sm text-gray-300">Pune, India • Every Last Sunday</p>
 
           <p className="text-sm text-gray-400 mt-4">
-            Any corrections or suggestions for this website? <br></br> Drop an email:
+            Any corrections or suggestions for this website? <br /> Drop an email:
           </p>
           <p className="text-sm mt-1">
             <a href="mailto:nikhil2201@gmail.com" className="text-green-400 hover:underline">
@@ -33,10 +33,25 @@ export default function Footer() {
         {/* Credits */}
         <div className="text-center md:text-right">
           <p className="text-sm mb-2">
-            Built with <span className="text-red-500">❤️</span> by Abhinav for LSoM
+            Built with <span className="text-red-500">❤️</span> by{' '}
+            <a
+              href="https://www.linkedin.com/in/mehta-abhinav/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 font-medium hover:underline"
+            >
+              Abhinav
+            </a>{' '}
+            for LSoM
           </p>
           <p className="text-xs text-gray-400 mb-1">
-            Powered by <a href="https://www.therunnersclub.in/" target="_blank" rel="noopener noreferrer" className="text-green-400 font-medium hover:underline">
+            Powered by{' '}
+            <a
+              href="https://www.therunnersclub.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 font-medium hover:underline"
+            >
               Pune Runners Club
             </a>
           </p>

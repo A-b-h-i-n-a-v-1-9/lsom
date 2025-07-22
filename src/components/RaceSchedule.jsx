@@ -61,6 +61,8 @@ export default function RaceSchedule() {
     { distance: "5 Km Fun Run", time: "6:15 AM", color: "bg-yellow-500", level: "Beginner" },
     { distance: "3 Km Walk", time: "6:15 AM", color: "bg-green-500", level: "All Levels" }
   ];
+  const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
+
 
   return (
     <section id="schedule" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -176,14 +178,17 @@ export default function RaceSchedule() {
                 </ul>
                 
                 <a
-                  href="https://konfhub.com/bg-lsom#tickets"
-                  className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
-                >
-                  Register Now
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
+   href={REGISTER_LINK}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
+>
+  Register Now
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+</a>
+
               </div>
             </div>
           </div>

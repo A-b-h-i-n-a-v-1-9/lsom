@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
+
+
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,8 +32,8 @@ export default function Navbar() {
 
   const navLinks = [
     { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
     { id: 'race', label: 'Race Details' },
+    { id: 'about', label: 'About' },  
     { id: 'gallery', label: 'Gallery' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -43,7 +46,6 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link
             to="/"
             className="flex items-center gap-2 group"
@@ -59,7 +61,6 @@ export default function Navbar() {
             </h1>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <ul className="flex gap-6 font-medium">
               {navLinks.map((link) => (
@@ -81,8 +82,10 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <Link
-              to="https://konfhub.com/bg-lsom#tickets"
+            <a
+              href={REGISTER_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-4 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2"
             >
               Register Now
@@ -100,10 +103,9 @@ export default function Navbar() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </Link>
+            </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,19 +119,9 @@ export default function Navbar() {
                 stroke="currentColor"
               >
                 {mobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -137,12 +129,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Nav */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          mobileMenuOpen ? 'max-h-96' : 'max-h-0'
-        }`}
-      >
+      <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+        mobileMenuOpen ? 'max-h-96' : 'max-h-0'
+      }`}>
         <div className="px-4 pt-4 pb-6 bg-white shadow-lg rounded-b-lg">
           <ul className="space-y-4">
             {navLinks.map((link) => (
@@ -161,13 +150,17 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <Link
-                to="/register"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block w-full text-center bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-md font-medium mt-2"
+              <a
+                href={REGISTER_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
               >
                 Register Now
-              </Link>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
             </li>
           </ul>
         </div>

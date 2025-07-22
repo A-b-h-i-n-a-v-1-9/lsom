@@ -1,6 +1,5 @@
 export default function Gallery() {
   const albums = [
-    
     {
       title: "NC-LSOM-2025",
       thumb: "https://www.lsom.in/assets/images/wakadlsom-1-979x639.jpg",
@@ -79,16 +78,7 @@ export default function Gallery() {
             </div>
           ))}
         </div>
-
-        {/* View More Button */}
-        <div className="text-center mt-12">
-          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 transition-colors duration-200">
-            View All Past Events
-            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </button>
-        </div>
+        
       </div>
     </section>
   );
