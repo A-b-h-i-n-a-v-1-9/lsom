@@ -87,16 +87,17 @@ export default function RaceSchedule() {
           
           <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
             {Object.entries(timeLeft).map(([unit, value]) => (
-              <div key={unit} className="text-center">
-                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-gray-900 dark:text-white">
-                    {value.toString().padStart(2, '0')}
-                  </div>
-                  <div className="text-xs uppercase text-gray-500 dark:text-gray-400 mt-1">
-                    {unit}
-                  </div>
-                </div>
-              </div>
+              <div className="text-center">
+  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
+    <div className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+      {value.toString().padStart(2, '0')}
+    </div>
+    <div className="text-[9px] uppercase text-gray-500 dark:text-gray-400 mt-1">
+      {unit}
+    </div>
+  </div>
+</div>
+
             ))}
           </div>
         </div>
