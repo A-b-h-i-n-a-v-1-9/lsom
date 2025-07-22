@@ -13,7 +13,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
 
-      const sections = ['home', 'about', 'Race Details', 'gallery', 'contact'];
+      const sections = ['home', 'about', 'race', 'gallery', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {

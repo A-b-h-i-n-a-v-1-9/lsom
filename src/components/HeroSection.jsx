@@ -2,6 +2,7 @@ export default function HeroMarathon() {
    const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
    const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
    const locationName = import.meta.env.VITE_LOCATION_NAME
+   const PlaceName = import.meta.env.VITE_PLACE_NAME
 
 
    function getLastSundayOfMonth() {
@@ -70,7 +71,7 @@ const eventYear = eventDate.getFullYear();
 
 
             <a
-              href="#routes"
+              href="./RoutesPage"
               className="border border-white text-white px-8 py-4 rounded-full text-lg hover:border-yellow-400 hover:text-yellow-400 transition"
             >
               Explore Routes
@@ -85,7 +86,7 @@ const eventYear = eventDate.getFullYear();
       {eventMonth} {eventYear}
     </div>
     <div className="text-gray-300 text-sm">
-  FLAG-OFF: 5:45 AM @ {locationName}
+  FLAG-OFF: 5:45 AM @ {PlaceName}
 </div>
   </div>
 </div>

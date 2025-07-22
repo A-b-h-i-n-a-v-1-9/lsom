@@ -33,7 +33,7 @@ export default function Footer() {
         {/* Credits */}
         <div className="text-center md:text-right">
           <p className="text-sm mb-2">
-            Built with <span className="text-red-500">❤️</span> by{' '}
+            Built by{' '}
             <a
               href="https://www.linkedin.com/in/mehta-abhinav/"
               target="_blank"
