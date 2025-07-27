@@ -1,14 +1,14 @@
 export default function Gallery() {
   const albums = [
-    {
-      title: "NC-LSOM-2025",
-      thumb: "https://www.lsom.in/assets/images/wakadlsom-1-979x639.jpg",
-      link: "https://drive.google.com/drive/u/0/folders/1Rd6QksMdtnM6b4fAgjozouBvvRiEpUDn",
-      participants: 118,
-      date: "February 25, 2025"
-    },
-    
-  ];
+  {
+    title: "NC-LSOM-2025",
+    thumb: "/assets/wakadlsom-1-979x639.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1Rd6QksMdtnM6b4fAgjozouBvvRiEpUDn",
+    participants: 118,
+    date: "February 25, 2025"
+  }
+];
+
 
   return (
     <section id="gallery" className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 px-6">
