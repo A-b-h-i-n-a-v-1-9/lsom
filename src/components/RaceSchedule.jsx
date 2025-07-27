@@ -126,7 +126,7 @@ export default function RaceSchedule() {
                         Flag off at <span className="font-semibold">{race.time}</span>
                       </p>
                       <a 
-                        href="./RoutesPage" 
+                        href="#" 
                         className="inline-flex items-center text-sm text-green-600 dark:text-green-400 hover:underline mt-1"
                       >
                         View route map

@@ -1,30 +1,42 @@
 export default function HeroMarathon() {
-   const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
-   const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
-   const locationName = import.meta.env.VITE_LOCATION_NAME
-   const PlaceName = import.meta.env.VITE_PLACE_NAME
+  const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
+  const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
+  const locationName = import.meta.env.VITE_LOCATION_NAME;
+  const PlaceName = import.meta.env.VITE_PLACE_NAME;
 
+  // Updated logic to get the correct LSOM (Last Sunday of Month)
+  function getLastSundayOfMonth() {
+    const now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth(); // current month (0-indexed)
 
-   function getLastSundayOfMonth() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1; // JS months are 0-indexed
+    // Get last Sunday of current month
+    const lastDayOfCurrentMonth = new Date(year, month + 1, 0);
+    const dayOfWeek = lastDayOfCurrentMonth.getDay(); // 0 = Sunday
+    const lastSunday = new Date(lastDayOfCurrentMonth);
+    lastSunday.setDate(lastDayOfCurrentMonth.getDate() - dayOfWeek);
 
-  // Last day of current month
-  const lastDayOfMonth = new Date(year, month, 0);
+    // If current date is after this LSOM, shift to next month
+    if (now > lastSunday) {
+      month += 1;
+      if (month > 11) {
+        month = 0;
+        year += 1;
+      }
+      const lastDayOfNextMonth = new Date(year, month + 1, 0);
+      const dayOfWeekNext = lastDayOfNextMonth.getDay();
+      const lastSundayNext = new Date(lastDayOfNextMonth);
+      lastSundayNext.setDate(lastDayOfNextMonth.getDate() - dayOfWeekNext);
+      return lastSundayNext;
+    }
 
-  // Calculate difference to last Sunday
-  const dayOfWeek = lastDayOfMonth.getDay(); // 0 (Sun) to 6 (Sat)
-  const lastSunday = new Date(lastDayOfMonth);
-  lastSunday.setDate(lastDayOfMonth.getDate() - dayOfWeek);
+    return lastSunday;
+  }
 
-  return lastSunday;
-}
-
-const eventDate = getLastSundayOfMonth();
-const eventDay = eventDate.getDate();
-const eventMonth = eventDate.toLocaleString('default', { month: 'long' }).toUpperCase();
-const eventYear = eventDate.getFullYear();
+  const eventDate = getLastSundayOfMonth();
+  const eventDay = eventDate.getDate();
+  const eventMonth = eventDate.toLocaleString('default', { month: 'long' }).toUpperCase();
+  const eventYear = eventDate.getFullYear();
 
   return (
     <section className="relative h-screen bg-black overflow-hidden">
@@ -43,7 +55,6 @@ const eventYear = eventDate.getFullYear();
       {/* Hero Content */}
       <div className="relative h-full flex flex-col justify-center items-center text-center px-6">
         <div className="max-w-5xl w-full">
-
           {/* Title */}
           <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-4">
             <span className="block">LSOM {eventMonth}</span>
@@ -52,23 +63,20 @@ const eventYear = eventDate.getFullYear();
 
           {/* Subtitle */}
           <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-            Conquer Pune's most scenic trails with 15k,10k,5k & 3k routes through
-            <span className="text-yellow-400 font-semibold">
-  {locationName}
-</span>
+            Conquer Pune's most scenic trails with 15k, 10k, 5k & 3k routes through{" "}
+            <span className="text-yellow-400 font-semibold">{locationName}</span>
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
-  href={REGISTER_LINK}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-yellow-400 text-black font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
->
-  Register Now
-</a>
-
+              href={REGISTER_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yellow-400 text-black font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
+            >
+              Register Now
+            </a>
 
             <a
               href="./RoutesPage"
@@ -80,22 +88,32 @@ const eventYear = eventDate.getFullYear();
 
           {/* Date Card */}
           <div className="inline-flex items-center bg-black/60 backdrop-blur-sm gap-6 px-6 py-4 rounded-lg border border-white/10">
-  <div className="text-yellow-400 font-extrabold text-3xl">{eventDay}</div>
-  <div className="text-left border-l border-white/20 pl-4">
-    <div className="text-white text-lg font-medium">
-      {eventMonth} {eventYear}
-    </div>
-    <div className="text-gray-300 text-sm">
-  FLAG-OFF: 5:45 AM @ {PlaceName}
-</div>
-  </div>
-</div>
-
+            <div className="text-yellow-400 font-extrabold text-3xl">{eventDay}</div>
+            <div className="text-left border-l border-white/20 pl-4">
+              <div className="text-white text-lg font-medium">
+                {eventMonth} {eventYear}
+              </div>
+              <div className="text-gray-300 text-sm">
+                FLAG-OFF: 5:45 AM @ {PlaceName}
+              </div>
+            </div>
+          </div>
 
           {/* Scroll Indicator */}
           <div className="mt-16 animate-bounce">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 mx-auto text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
             </svg>
           </div>
         </div>
