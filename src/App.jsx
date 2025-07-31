@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import RoutesPage from "./pages/RoutesPage";  // Import your RoutesPage
+import RoutesPage from "./pages/RoutesPage";
 
 export default function App() {
   return (
@@ -8,7 +8,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/RoutesPage" element={<RoutesPage />} />
-
       </Routes>
     </Router>
   );
