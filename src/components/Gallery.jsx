@@ -2,7 +2,7 @@ export default function Gallery() {
   const albums = [
   {
     title: "NC-LSOM-2025",
-    thumb: "lsom/assets/wakadlsom-1-979x639.jpg",
+    thumb: "assets/wakadlsom-1-979x639.jpg",
     link: "https://drive.google.com/drive/u/0/folders/1Rd6QksMdtnM6b4fAgjozouBvvRiEpUDn",
     participants: 118,
     date: "February 25, 2025"
