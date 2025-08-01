@@ -148,7 +148,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
-                  href={`#${link.id}`}
+                  href={`${link.id}`}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition ${
                     activeLink === link.id
