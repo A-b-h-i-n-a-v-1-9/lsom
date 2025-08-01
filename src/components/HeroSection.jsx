@@ -3,37 +3,11 @@ export default function HeroMarathon() {
   const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
   const locationName = import.meta.env.VITE_LOCATION_NAME;
   const PlaceName = import.meta.env.VITE_PLACE_NAME;
+  const LOCATION_LINK = import.meta.env.VITE_LOCATION_LINK;
+  const EVENT_DATE = import.meta.env.VITE_EVENT_DATE;
+  const FLAG_OFF_TIME = import.meta.env.VITE_FLAG_OFF_TIME;
 
-  // Updated logic to get the correct LSOM (Last Sunday of Month)
-  function getLastSundayOfMonth() {
-    const now = new Date();
-    let year = now.getFullYear();
-    let month = now.getMonth(); // current month (0-indexed)
-
-    // Get last Sunday of current month
-    const lastDayOfCurrentMonth = new Date(year, month + 1, 0);
-    const dayOfWeek = lastDayOfCurrentMonth.getDay(); // 0 = Sunday
-    const lastSunday = new Date(lastDayOfCurrentMonth);
-    lastSunday.setDate(lastDayOfCurrentMonth.getDate() - dayOfWeek);
-
-    // If current date is after this LSOM, shift to next month
-    if (now > lastSunday) {
-      month += 1;
-      if (month > 11) {
-        month = 0;
-        year += 1;
-      }
-      const lastDayOfNextMonth = new Date(year, month + 1, 0);
-      const dayOfWeekNext = lastDayOfNextMonth.getDay();
-      const lastSundayNext = new Date(lastDayOfNextMonth);
-      lastSundayNext.setDate(lastDayOfNextMonth.getDate() - dayOfWeekNext);
-      return lastSundayNext;
-    }
-
-    return lastSunday;
-  }
-
-  const eventDate = getLastSundayOfMonth();
+  const eventDate = new Date(EVENT_DATE);
   const eventDay = eventDate.getDate();
   const eventMonth = eventDate.toLocaleString('default', { month: 'long' }).toUpperCase();
   const eventYear = eventDate.getFullYear();
@@ -94,7 +68,15 @@ export default function HeroMarathon() {
                 {eventMonth} {eventYear}
               </div>
               <div className="text-gray-300 text-sm">
-                FLAG-OFF: 5:45 AM @ {PlaceName}
+                FLAG-OFF: {FLAG_OFF_TIME} @{" "}
+                <a
+                  href={LOCATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-yellow-400 transition"
+                >
+                  {PlaceName}
+                </a>
               </div>
             </div>
           </div>
