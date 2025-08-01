@@ -6,7 +6,13 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* 
+          Homepage handles all hash fragments (#home, #about, etc.)
+          - `path="/*"` allows nested hash navigation inside Home
+        */}
+        <Route path="/*" element={<Home />} />
+
+        {/* Separate page (accessible via /#/RoutesPage) */}
         <Route path="/RoutesPage" element={<RoutesPage />} />
       </Routes>
     </Router>

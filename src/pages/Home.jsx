@@ -73,7 +73,7 @@ export default function Home() {
           {showScrollHint && (
             <div className="fixed bottom-8 right-8 z-50 animate-bounce">
               <div className="bg-white p-3 rounded-full shadow-lg">
-                <svg xmlns="https://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
