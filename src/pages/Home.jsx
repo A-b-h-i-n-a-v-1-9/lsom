@@ -8,6 +8,7 @@ import Gallery from "../components/Gallery";
 import Preloader from "../components/Preloader";
 import Footer from "../components/Footer";
 import HostGroupSection from "../components/HostGroupSection"; // ✅ fixed path
+import NotificationBanner from "../components/NotificationBanner";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -81,6 +82,7 @@ export default function Home() {
           )}
         </div>
       </div>
+      <NotificationBanner />
     </>
   );
 }
