@@ -9,6 +9,7 @@ export default function RaceSchedule() {
   });
 
   const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
+  const REGISTER_TEXT = import.meta.env.VITE_REGISTER_TEXT
   const EVENT_DATE = import.meta.env.VITE_EVENT_DATE;
 
   const RACE_DIRECTOR_NAME = import.meta.env.VITE_RACE_DIRECTOR_NAME;
@@ -247,27 +248,28 @@ export default function RaceSchedule() {
                 </ul>
 
                 <a
-                  href={REGISTER_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
-                >
-                  Register Now
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
+  href={REGISTER_LINK}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
+>
+  {REGISTER_TEXT}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5 ml-2"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14 5l7 7m0 0l-7 7m7-7H3"
+    />
+  </svg>
+</a>
+
 
                 {RACE_DIRECTOR_NAME && RACE_DIRECTOR_PHONE && (
                   <div className="text-sm text-gray-700 dark:text-gray-300 mt-6">

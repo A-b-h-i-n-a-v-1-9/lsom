@@ -1,5 +1,6 @@
 export default function HeroMarathon() {
   const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
+  const REGISTER_TEXT = import.meta.env.VITE_REGISTER_TEXT;
   const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
   const locationName = import.meta.env.VITE_LOCATION_NAME;
   const PlaceName = import.meta.env.VITE_PLACE_NAME;
@@ -36,9 +37,9 @@ export default function HeroMarathon() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-           Take on Pune’s thrilling city routes with 15k, 10k, 5k & 3k runs built for every pace @{" "}
-            <span className="text-yellow-400 font-semibold">{locationName}</span>
+          <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            We’re a running community hosting monthly runs across Pune and free weekly training sessions. Join us!{" "}
+            <br></br><span className="text-yellow-400 font-semibold text-4xl">{locationName}</span>
           </p>
 
           {/* Buttons */}
@@ -49,7 +50,7 @@ export default function HeroMarathon() {
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
             >
-              Register Now
+              {REGISTER_TEXT}
             </a>
 
             {/* <a
