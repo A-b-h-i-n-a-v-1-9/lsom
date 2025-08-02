@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           <div id="hosts">
-            <HostGroupSection /> {/* ✅ New section added here */}
+            <HostGroupSection /> 
           </div>
 
           <div id="race">
@@ -82,7 +82,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <NotificationBanner />
+      {/* <NotificationBanner /> */}
     </>
   );
 }

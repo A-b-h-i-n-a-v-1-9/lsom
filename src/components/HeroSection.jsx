@@ -37,7 +37,7 @@ export default function HeroMarathon() {
 
           {/* Subtitle */}
           <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-            Conquer Pune's most scenic trails with 15k, 10k, 5k & 3k routes through{" "}
+           Take on Pune’s thrilling city routes with 15k, 10k, 5k & 3k runs built for every pace @{" "}
             <span className="text-yellow-400 font-semibold">{locationName}</span>
           </p>
 
@@ -52,12 +52,12 @@ export default function HeroMarathon() {
               Register Now
             </a>
 
-            <a
+            {/* <a
               href="./RoutesPage"
               className="border border-white text-white px-8 py-4 rounded-full text-lg hover:border-yellow-400 hover:text-yellow-400 transition"
             >
               Explore Routes
-            </a>
+            </a> */}
           </div>
 
           {/* Date Card */}
