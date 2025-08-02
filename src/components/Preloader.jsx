@@ -17,34 +17,37 @@ export default function Preloader() {
   ];
   const [currentTagline, setCurrentTagline] = useState(taglines[0]);
 
+  // Simulate progress up to 90%
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 90) {
+          clearInterval(interval);
+          return 90;
+        }
+        return prev + 10;
+      });
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Update tagline whenever progress changes
+  useEffect(() => {
+    const idx = Math.floor(progress / 10) % taglines.length;
+    setCurrentTagline(taglines[idx]);
+  }, [progress]);
+
+  // Real load event: jump to 100% and hide
   useEffect(() => {
     const onLoad = () => {
-      // If everything loaded quickly, hide immediately
-      if (progress >= 90) {
-        setProgress(100);
-        setTimeout(() => setShowPreloader(false), 500);
-      } else {
-        // Wait for the simulated loader to finish
-        const interval = setInterval(() => {
-          setProgress(prev => {
-            if (prev >= 100) {
-              clearInterval(interval);
-              setTimeout(() => setShowPreloader(false), 500);
-              return 100;
-            }
-            return prev + 10;
-          });
-
-          setCurrentTagline(taglines[Math.floor(progress / 10) % taglines.length]);
-        }, 200);
-      }
+      setProgress(100);
+      setTimeout(() => setShowPreloader(false), 500);
     };
 
-    // Listen to real window load (after images etc.)
     window.addEventListener('load', onLoad);
-
     return () => window.removeEventListener('load', onLoad);
-  }, [progress]);
+  }, []);
 
   if (!showPreloader) return null;
 
