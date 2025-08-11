@@ -33,7 +33,7 @@ export default function HeroMarathon() {
           {/* Title */}
           <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-4">
             <span className="block">LSOM {eventMonth}</span>
-            <span className="text-yellow-400">MARATHON</span>
+            {/* <span className="text-yellow-400">MARATHON</span> */}
           </h1>
 
           {/* Subtitle */}

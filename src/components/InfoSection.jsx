@@ -105,10 +105,10 @@ export default function InfoSection() {
                   </div>
                   <ul className="space-y-3 pl-2">
                     {[
-                      "5:00 AM - Registration & Bib collection",
-                      "5:30 AM - New runner orientation",
-                      "5:45 AM - Group warm-up session",
-                      "6:00 AM - Run briefing & safety notes"
+                      "Registration & Bib collection",
+                      "New runner orientation",
+                      "Group warm-up session",
+                      "Run briefing & safety notes"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start">
                         <span className="inline-block w-5 h-5 mr-3 text-green-500">•</span>

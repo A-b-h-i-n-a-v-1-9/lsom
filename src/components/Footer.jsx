@@ -44,17 +44,6 @@ export default function Footer() {
             </a>{' '}
             for LSoM
           </p>
-          <p className="text-xs text-gray-400 mb-1">
-            Powered by{' '}
-            <a
-              href="https://www.therunnersclub.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-400 font-medium hover:underline"
-            >
-              Pune Runners Club
-            </a>
-          </p>
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} All rights reserved.
           </p>
