@@ -24,9 +24,17 @@ export default function Footer() {
         <div className="text-center">
           <h3 className="font-semibold text-white mb-3">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:text-green-400 transition-colors">Registration</a></li>
-            <li><a href="#" className="hover:text-green-400 transition-colors">Route Map</a></li>
-            <li><a href="#" className="hover:text-green-400 transition-colors">Results Archive</a></li>
+            <li>
+              <a
+                href={import.meta.env.VITE_REGISTER_LINK}
+                className="hover:text-green-400 transition-colors"
+              >
+                Registration
+              </a>
+            </li>
+
+            <li><a href="https://www.instagram.com/lsompunerunning/" className="hover:text-green-400 transition-colors">Instagram</a></li>
+            {/* <li><a href="#" className="hover:text-green-400 transition-colors">Results Archive</a></li> */}
           </ul>
         </div>
 

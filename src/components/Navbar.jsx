@@ -13,7 +13,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
 
-      const sections = ["home", "about", "race", "gallery", "contact"];
+      const sections = ["home","hosts", "about", "race", "gallery", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -32,6 +32,7 @@ export default function Navbar() {
 
   const navLinks = [
     { id: "home", label: "Home" },
+    { id: "hosts", label: "Host" },
     { id: "race", label: "Race Details" },
     { id: "about", label: "About" },
     { id: "gallery", label: "Gallery" },
