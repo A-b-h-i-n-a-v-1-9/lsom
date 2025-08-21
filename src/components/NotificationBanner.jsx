@@ -73,33 +73,17 @@
 //         </>
 //     );
 // }
-import { useState, useEffect } from "react";
-import { Bell, X } from "lucide-react";
+import { useState } from "react";
+import { Bell } from "lucide-react";
 
 export default function NotificationBanner() {
-    const [showBanner, setShowBanner] = useState(false);
-    const [autoShown, setAutoShown] = useState(false);
     const [notificationOpen, setNotificationOpen] = useState(false);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (!autoShown) {
-                setShowBanner(true);
-                setNotificationOpen(true); // auto-open popup after delay
-                setAutoShown(true);
-            }
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, [autoShown]);
-
     const toggleNotification = () => {
-        setShowBanner(!showBanner);
         setNotificationOpen(!notificationOpen);
     };
 
     const dismiss = () => {
-        setShowBanner(false);
         setNotificationOpen(false);
     };
 
@@ -199,3 +183,4 @@ export default function NotificationBanner() {
         </>
     );
 }
+
