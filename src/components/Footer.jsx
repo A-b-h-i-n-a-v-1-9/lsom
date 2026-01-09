@@ -43,7 +43,7 @@ export default function Footer() {
           <p className="text-sm mb-2">
             Built by{' '}
             <a
-              href="https://www.linkedin.com/in/mehta-abhinav/"
+              href="https://abhinavmehta.me/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-400 font-medium hover:underline"
