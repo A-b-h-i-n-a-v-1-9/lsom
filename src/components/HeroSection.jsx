@@ -10,7 +10,9 @@ export default function HeroMarathon() {
 
   const eventDate = new Date(EVENT_DATE);
   const eventDay = eventDate.getDate();
-  const eventMonth = eventDate.toLocaleString('default', { month: 'long' }).toUpperCase();
+  const eventMonth = eventDate
+    .toLocaleString("default", { month: "long" })
+    .toUpperCase();
   const eventYear = eventDate.getFullYear();
 
   return (
@@ -22,68 +24,87 @@ export default function HeroMarathon() {
           backgroundImage: `url('${BACKGROUND_IMAGE}')`,
           backgroundAttachment: "fixed",
         }}
-      ></div>
+      />
 
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
       {/* Hero Content */}
-      <div className="relative h-full flex flex-col justify-center items-center text-center px-6">
-        <div className="max-w-5xl w-full">
+      <div className="relative h-full flex items-center justify-center px-6">
+        <div className="max-w-3xl w-full text-center space-y-8">
           {/* Title */}
-          <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-            <span className="block">LSOM {eventMonth}</span>
-            {/* <span className="text-yellow-400">MARATHON</span> */}
+          <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight">
+            LSOM {eventMonth}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            We’re a running community hosting monthly runs across Pune and free weekly training sessions. Join us!{" "}
-            <br></br><span className="text-yellow-400 font-semibold text-4xl">{locationName}</span>
-          </p>
+          <div className="space-y-2">
+            <p className="text-lg md:text-xl text-gray-200 max-w-xl mx-auto">
+              We’re a running community hosting monthly runs across Pune and free
+              weekly training sessions. Join us!
+            </p>
+            <p className="text-yellow-400 font-semibold text-3xl">
+              {locationName}
+            </p>
+          </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          {/* CTA + Social */}
+          <div className="flex flex-col items-center gap-4 pt-4">
             <a
               href={REGISTER_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-yellow-400 text-black font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
+              className="bg-yellow-400 text-black font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
             >
               {REGISTER_TEXT}
             </a>
 
-            {/* <a
-              href="./RoutesPage"
-              className="border border-white text-white px-8 py-4 rounded-full text-lg hover:border-yellow-400 hover:text-yellow-400 transition"
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/runnersclub_themarathonersclub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full text-white border border-white/20 hover:border-pink-500 hover:text-pink-400 transition"
             >
-              Explore Routes
-            </a> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.75 2h8.5C19.44 2 22 4.56 22 7.75v8.5C22 19.44 19.44 22 16.25 22h-8.5C4.56 22 2 19.44 2 16.25v-8.5C2 4.56 4.56 2 7.75 2zm0 1.5C5.4 3.5 3.5 5.4 3.5 7.75v8.5c0 2.35 1.9 4.25 4.25 4.25h8.5c2.35 0 4.25-1.9 4.25-4.25v-8.5c0-2.35-1.9-4.25-4.25-4.25h-8.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 1.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm5.25-.88a1.13 1.13 0 110 2.25 1.13 1.13 0 010-2.25z" />
+              </svg>
+              <span className="font-semibold">Follow us on Instagram</span>
+            </a>
           </div>
 
           {/* Date Card */}
-          <div className="inline-flex items-center bg-black/60 backdrop-blur-sm gap-6 px-6 py-4 rounded-lg border border-white/10">
-            <div className="text-yellow-400 font-extrabold text-3xl">{eventDay}</div>
-            <div className="text-left border-l border-white/20 pl-4">
-              <div className="text-white text-lg font-medium">
-                {eventMonth} {eventYear}
+          <div className="pt-6">
+            <div className="inline-flex items-center bg-black/60 backdrop-blur-sm gap-6 px-6 py-4 rounded-lg border border-white/10">
+              <div className="text-yellow-400 font-extrabold text-3xl">
+                {eventDay}
               </div>
-              <div className="text-gray-300 text-sm">
-                FLAG-OFF: {FLAG_OFF_TIME} @{" "}
-                <a
-                  href={LOCATION_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-yellow-400 transition"
-                >
-                  {PlaceName}
-                </a>
+              <div className="text-left border-l border-white/20 pl-4">
+                <div className="text-white text-lg font-medium">
+                  {eventMonth} {eventYear}
+                </div>
+                <div className="text-gray-300 text-sm">
+                  FLAG-OFF: {FLAG_OFF_TIME} @{" "}
+                  <a
+                    href={LOCATION_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-yellow-400 transition"
+                  >
+                    {PlaceName}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-16 animate-bounce">
+          <div className="pt-8 animate-bounce">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 mx-auto text-white"
