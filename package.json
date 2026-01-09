@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/A-b-h-i-n-a-v-1-9/lsom.git"
   },
   "dependencies": {
     "lucide-react": "^0.536.0",
