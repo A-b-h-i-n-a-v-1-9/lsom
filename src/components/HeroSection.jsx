@@ -64,7 +64,7 @@ export default function HeroMarathon() {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/runnersclub_themarathonersclub/"
+                href="https://www.instagram.com/pashanrunning?igsh=YzljYTk1ODg3Zg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full text-white border border-white/20 hover:border-pink-500 hover:text-pink-400 transition"
@@ -81,7 +81,7 @@ export default function HeroMarathon() {
               </a>
 
               {/* WhatsApp */}
-              <a
+              {/* <a
                 href="https://chat.whatsapp.com/B8mt6baR9WNG2TGbR0IxYB"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -96,7 +96,7 @@ export default function HeroMarathon() {
                   <path d="M20.52 3.48A11.78 11.78 0 0012 0C5.37 0 .09 5.38.09 12a11.9 11.9 0 001.63 6L0 24l6.21-1.63A12.06 12.06 0 0012 24h.01c6.63 0 11.99-5.37 11.99-12a11.78 11.78 0 00-3.48-8.52zM12 21.5h-.01a9.51 9.51 0 01-4.84-1.32l-.35-.21-3.69.97.99-3.6-.23-.37A9.56 9.56 0 012.5 12C2.5 6.76 6.76 2.5 12 2.5a9.48 9.48 0 019.5 9.5c0 5.24-4.26 9.5-9.5 9.5zm5.12-7.36c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.62.14-.19.28-.72.9-.88 1.08-.16.18-.33.2-.61.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.45-.62-.46h-.53c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43 0 1.43 1.03 2.82 1.18 3.02.14.19 2.03 3.1 4.97 4.35.7.3 1.25.48 1.68.61.7.22 1.34.19 1.85.11.56-.08 1.65-.67 1.89-1.32.23-.65.23-1.21.16-1.32-.07-.12-.25-.19-.52-.33z" />
                 </svg>
                 <span className="font-semibold">Join us on WhatsApp</span>
-              </a>
+              </a> */}
 
             </div>
           </div>
