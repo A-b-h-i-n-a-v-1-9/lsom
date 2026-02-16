@@ -225,10 +225,10 @@ export default function RaceSchedule({ event: eventProp }) {
                 </ul>
 
                 {REGISTER_LINK && (
-                  <a
-                    href={REGISTER_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                      href={REGISTER_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
                   >
                     {REGISTER_TEXT}

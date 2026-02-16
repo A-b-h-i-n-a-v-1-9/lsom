@@ -79,17 +79,15 @@ export const lsomEvents = [
     },
     routeMapLink: "",
     routeMapLinks: {
-    "15 Km ": "https://www.plotaroute.com/route/2889597",
-    "10 Km ": "https://www.plotaroute.com/route/2889720",
-    "5 Km ": "https://www.plotaroute.com/route/2889731",
-    "3 Km ": "https://www.plotaroute.com/route/2889737",
-  },
+      "15 Km ": "https://www.plotaroute.com/route/2889597",
+      "10 Km ": "https://www.plotaroute.com/route/2889720",
+      "5 Km ": "https://www.plotaroute.com/route/2889731",
+      "3 Km ": "https://www.plotaroute.com/route/2889737",
+    },
     raceDirectorName: "Shri Swapnil Nandgaonkar ",
     raceDirectorPhone: "93717 81809",
     assistantRaceDirectorName: "Smt Pooja Gogave",
     assistantRaceDirectorPhone: "96046 39425",
-
-
     hostGroup: {
       title: "Host - NCRunners",
       image: "assets/ncrunners.jpeg",
