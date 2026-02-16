@@ -1,12 +1,28 @@
-export default function HeroMarathon() {
-  const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK;
-  const REGISTER_TEXT = import.meta.env.VITE_REGISTER_TEXT;
-  const BACKGROUND_IMAGE = import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE;
-  const locationName = import.meta.env.VITE_LOCATION_NAME;
-  const PlaceName = import.meta.env.VITE_PLACE_NAME;
-  const LOCATION_LINK = import.meta.env.VITE_LOCATION_LINK;
-  const EVENT_DATE = import.meta.env.VITE_EVENT_DATE;
-  const FLAG_OFF_TIME = import.meta.env.VITE_FLAG_OFF_TIME;
+function getEventFromEnv() {
+  return {
+    registerLink: import.meta.env.VITE_REGISTER_LINK,
+    registerText: import.meta.env.VITE_REGISTER_TEXT,
+    backgroundImage: import.meta.env.VITE_PUBLIC_BACKGROUND_IMAGE,
+    locationName: import.meta.env.VITE_LOCATION_NAME,
+    placeName: import.meta.env.VITE_PLACE_NAME,
+    locationLink: import.meta.env.VITE_LOCATION_LINK,
+    eventDate: import.meta.env.VITE_EVENT_DATE,
+    flagOffTime: import.meta.env.VITE_FLAG_OFF_TIME,
+  };
+}
+
+export default function HeroSection({ event: eventProp }) {
+  const event = eventProp ?? getEventFromEnv();
+  const REGISTER_LINK = event?.registerLink;
+  const REGISTER_TEXT = event?.registerText ?? "Register Now";
+  const BACKGROUND_IMAGE = event?.backgroundImage;
+  const locationName = event?.locationName;
+  const PlaceName = event?.placeName;
+  const LOCATION_LINK = event?.locationLink;
+  const EVENT_DATE = event?.eventDate;
+  const FLAG_OFF_TIME = event?.flagOffTime;
+
+  if (!EVENT_DATE || !locationName) return null;
 
   const eventDate = new Date(EVENT_DATE);
   const eventDay = eventDate.getDate();
@@ -18,13 +34,15 @@ export default function HeroMarathon() {
   return (
     <section className="relative h-screen bg-black overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center brightness-75"
-        style={{
-          backgroundImage: `url('${BACKGROUND_IMAGE}')`,
-          backgroundAttachment: "fixed",
-        }}
-      />
+      {BACKGROUND_IMAGE && (
+        <div
+          className="absolute inset-0 bg-cover bg-center brightness-75"
+          style={{
+            backgroundImage: `url('${BACKGROUND_IMAGE}')`,
+            backgroundAttachment: "fixed",
+          }}
+        />
+      )}
 
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
@@ -40,7 +58,7 @@ export default function HeroMarathon() {
           {/* Subtitle */}
           <div className="space-y-2">
             <p className="text-lg md:text-xl text-gray-200 max-w-xl mx-auto">
-              We’re a running community hosting monthly runs across Pune and free
+              We're a running community hosting monthly runs across Pune and free
               weekly training sessions. Join us!
             </p>
             <p className="text-yellow-400 font-semibold text-3xl">
@@ -50,19 +68,19 @@ export default function HeroMarathon() {
 
           {/* CTA + Social */}
           <div className="flex flex-col items-center gap-4 pt-4">
-            <a
-              href={REGISTER_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-yellow-400 text-black font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
-            >
-              {REGISTER_TEXT}
-            </a>
+            {REGISTER_LINK && (
+              <a
+                href={REGISTER_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-yellow-400 text-black font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-500 transition"
+              >
+                {REGISTER_TEXT}
+              </a>
+            )}
 
             {/* Social Buttons Side-by-Side */}
             <div className="flex items-center justify-center gap-4 flex-wrap">
-
-              {/* Instagram */}
               <a
                 href="https://www.instagram.com/pashanrunning?igsh=YzljYTk1ODg3Zg=="
                 target="_blank"
@@ -79,25 +97,6 @@ export default function HeroMarathon() {
                 </svg>
                 <span className="font-semibold">Follow us on Instagram</span>
               </a>
-
-              {/* WhatsApp */}
-              {/* <a
-                href="https://chat.whatsapp.com/B8mt6baR9WNG2TGbR0IxYB"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-green-600/70 backdrop-blur-md px-6 py-3 rounded-full text-white border border-white/20 hover:border-green-300 hover:text-green-200 transition"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.52 3.48A11.78 11.78 0 0012 0C5.37 0 .09 5.38.09 12a11.9 11.9 0 001.63 6L0 24l6.21-1.63A12.06 12.06 0 0012 24h.01c6.63 0 11.99-5.37 11.99-12a11.78 11.78 0 00-3.48-8.52zM12 21.5h-.01a9.51 9.51 0 01-4.84-1.32l-.35-.21-3.69.97.99-3.6-.23-.37A9.56 9.56 0 012.5 12C2.5 6.76 6.76 2.5 12 2.5a9.48 9.48 0 019.5 9.5c0 5.24-4.26 9.5-9.5 9.5zm5.12-7.36c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.62.14-.19.28-.72.9-.88 1.08-.16.18-.33.2-.61.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.45-.62-.46h-.53c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43 0 1.43 1.03 2.82 1.18 3.02.14.19 2.03 3.1 4.97 4.35.7.3 1.25.48 1.68.61.7.22 1.34.19 1.85.11.56-.08 1.65-.67 1.89-1.32.23-.65.23-1.21.16-1.32-.07-.12-.25-.19-.52-.33z" />
-                </svg>
-                <span className="font-semibold">Join us on WhatsApp</span>
-              </a> */}
-
             </div>
           </div>
 
@@ -113,14 +112,18 @@ export default function HeroMarathon() {
                 </div>
                 <div className="text-gray-300 text-sm">
                   FLAG-OFF: {FLAG_OFF_TIME} @{" "}
-                  <a
-                    href={LOCATION_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-yellow-400 transition"
-                  >
-                    {PlaceName}
-                  </a>
+                  {LOCATION_LINK && PlaceName ? (
+                    <a
+                      href={LOCATION_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-yellow-400 transition"
+                    >
+                      {PlaceName}
+                    </a>
+                  ) : (
+                    PlaceName
+                  )}
                 </div>
               </div>
             </div>

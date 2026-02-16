@@ -1,4 +1,12 @@
+import { getNextEvent } from "../data/lsomEvents";
+
 export default function Footer() {
+  const nextEvent = getNextEvent();
+  const registrationHref =
+    nextEvent?.registerLink ??
+    import.meta.env.VITE_REGISTER_LINK ??
+    "#home";
+
   return (
     <footer className="bg-gray-900 text-gray-200 py-12 px-6 border-t-2 border-green-500">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -26,7 +34,10 @@ export default function Footer() {
           <ul className="space-y-1 text-sm">
             <li>
               <a
-                href={import.meta.env.VITE_REGISTER_LINK}
+                href={registrationHref}
+                {...(registrationHref.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="hover:text-green-400 transition-colors"
               >
                 Registration
