@@ -40,10 +40,8 @@ export default function RaceSchedule({ event: eventProp }) {
   const routeMapLinks = event?.routeMapLinks ?? {}; // Per-route map links
   const raceStartTimes = event?.startTimes ?? {};
   
-  // Prefer ARD if available, otherwise use RD
-  const contactName = ASSISTANT_RACE_DIRECTOR_NAME || RACE_DIRECTOR_NAME;
-  const contactPhone = ASSISTANT_RACE_DIRECTOR_PHONE || RACE_DIRECTOR_PHONE;
-  const contactTitle = ASSISTANT_RACE_DIRECTOR_NAME ? "Assistant Race Director" : "Race Director";
+  const hasRD = RACE_DIRECTOR_NAME && RACE_DIRECTOR_PHONE;
+  const hasARD = ASSISTANT_RACE_DIRECTOR_NAME && ASSISTANT_RACE_DIRECTOR_PHONE;
 
   const races = racesTemplate.filter((r) => raceStartTimes[r.distance] != null);
 
@@ -251,18 +249,35 @@ export default function RaceSchedule({ event: eventProp }) {
                   </a>
                 )}
 
-                {contactName && contactPhone && (
+                {(hasRD || hasARD) && (
                   <div className="text-sm text-gray-700 dark:text-gray-300 mt-6">
-                    For any questions, contact{" "}
-                    {contactTitle}:{" "}
-                    <span className="font-semibold">{contactName}</span>{" "}
-                    at{" "}
-                    <a
-                      href={`tel:${contactPhone}`}
-                      className="text-green-600 dark:text-green-400 underline"
-                    >
-                      {contactPhone}
-                    </a>
+                    <p className="font-medium text-gray-900 dark:text-white mb-2">For any questions, contact:</p>
+                    <ul className="list-disc list-inside space-y-1.5">
+                      {hasRD && (
+                        <li>
+                          <span className="font-medium">Race Director:</span>{" "}
+                          <span className="font-semibold">{RACE_DIRECTOR_NAME}</span>{" "}
+                          <a
+                            href={`tel:${String(RACE_DIRECTOR_PHONE).replace(/\s/g, "")}`}
+                            className="text-green-600 dark:text-green-400 underline"
+                          >
+                            {RACE_DIRECTOR_PHONE}
+                          </a>
+                        </li>
+                      )}
+                      {hasARD && (
+                        <li>
+                          <span className="font-medium">Assistant Race Director:</span>{" "}
+                          <span className="font-semibold">{ASSISTANT_RACE_DIRECTOR_NAME}</span>{" "}
+                          <a
+                            href={`tel:${String(ASSISTANT_RACE_DIRECTOR_PHONE).replace(/\s/g, "")}`}
+                            className="text-green-600 dark:text-green-400 underline"
+                          >
+                            {ASSISTANT_RACE_DIRECTOR_PHONE}
+                          </a>
+                        </li>
+                      )}
+                    </ul>
                   </div>
                 )}
               </div>
