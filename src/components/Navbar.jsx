@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { getNextEvent } from "../data/lsomEvents";
 
 export default function Navbar() {
-  const REGISTER_LINK = import.meta.env.VITE_REGISTER_LINK ?? "#";
-  const REGISTER_TEXT = import.meta.env.VITE_REGISTER_TEXT ?? "Register Now";
+  const nextEvent = getNextEvent();
+  const REGISTER_LINK =
+    nextEvent?.registerLink ?? import.meta.env.VITE_REGISTER_LINK ?? "#home";
+  const REGISTER_TEXT =
+    nextEvent?.registerText ?? import.meta.env.VITE_REGISTER_TEXT ?? "Register Now";
+  const isExternalRegister = REGISTER_LINK.startsWith("http");
 
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
@@ -13,7 +18,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
 
-      const sections = ["home","hosts", "about", "race", "gallery", "contact"];
+      const sections = ["home", "about", "gallery", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -32,8 +37,6 @@ export default function Navbar() {
 
   const navLinks = [
     { id: "home", label: "Home" },
-    { id: "hosts", label: "Host" },
-    { id: "race", label: "Race Details" },
     { id: "about", label: "About" },
     { id: "gallery", label: "Gallery" },
     { id: "contact", label: "Contact" },
@@ -87,8 +90,9 @@ export default function Navbar() {
 
             <a
               href={REGISTER_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(isExternalRegister
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="ml-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-1"
             >
               {REGISTER_TEXT}
@@ -167,8 +171,9 @@ export default function Navbar() {
             <li>
               <a
                 href={REGISTER_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(isExternalRegister
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 {REGISTER_TEXT}
