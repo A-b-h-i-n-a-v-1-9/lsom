@@ -107,17 +107,17 @@ export default function HeroSection({ event: eventProp }) {
                 {eventDay}
               </div>
               <div className="text-left border-l border-white/20 pl-4">
-                <div className="text-white text-lg font-medium">
+                <div className="text-yellow-400 text-lg font-medium">
                   {eventMonth} {eventYear}
                 </div>
-                <div className="text-gray-300 text-sm">
+                <div className="text-yellow-400 text-sm">
                   FLAG-OFF: {FLAG_OFF_TIME} @{" "}
                   {LOCATION_LINK && PlaceName ? (
                     <a
                       href={LOCATION_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-yellow-400 transition"
+                      className="underline hover:text-yellow-300 transition"
                     >
                       {PlaceName}
                     </a>

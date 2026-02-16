@@ -8,6 +8,8 @@ function getEventFromEnv() {
     registerText: import.meta.env.VITE_REGISTER_TEXT,
     raceDirectorName: import.meta.env.VITE_RACE_DIRECTOR_NAME,
     raceDirectorPhone: import.meta.env.VITE_RACE_DIRECTOR_PHONE,
+    assistantRaceDirectorName: import.meta.env.VITE_ASSISTANT_RACE_DIRECTOR_NAME,
+    assistantRaceDirectorPhone: import.meta.env.VITE_ASSISTANT_RACE_DIRECTOR_PHONE,
     routeMapLink: "https://maps.app.goo.gl/zgogsm3noMcSPFLLA",
     startTimes: {
       "15 Km ": import.meta.env.VITE_START_TIME_15K || "06:00",
@@ -32,8 +34,16 @@ export default function RaceSchedule({ event: eventProp }) {
   const EVENT_DATE = event?.eventDate;
   const RACE_DIRECTOR_NAME = event?.raceDirectorName;
   const RACE_DIRECTOR_PHONE = event?.raceDirectorPhone;
-  const routeMapLink = event?.routeMapLink;
+  const ASSISTANT_RACE_DIRECTOR_NAME = event?.assistantRaceDirectorName;
+  const ASSISTANT_RACE_DIRECTOR_PHONE = event?.assistantRaceDirectorPhone;
+  const routeMapLink = event?.routeMapLink; // Fallback for all routes
+  const routeMapLinks = event?.routeMapLinks ?? {}; // Per-route map links
   const raceStartTimes = event?.startTimes ?? {};
+  
+  // Prefer ARD if available, otherwise use RD
+  const contactName = ASSISTANT_RACE_DIRECTOR_NAME || RACE_DIRECTOR_NAME;
+  const contactPhone = ASSISTANT_RACE_DIRECTOR_PHONE || RACE_DIRECTOR_PHONE;
+  const contactTitle = ASSISTANT_RACE_DIRECTOR_NAME ? "Assistant Race Director" : "Race Director";
 
   const races = racesTemplate.filter((r) => raceStartTimes[r.distance] != null);
 
@@ -151,9 +161,9 @@ export default function RaceSchedule({ event: eventProp }) {
                         AM
                       </p>
 
-                      {routeMapLink && (
+                      {(routeMapLinks[race.distance] || routeMapLink) && (
                         <a
-                          href={routeMapLink}
+                          href={routeMapLinks[race.distance] || routeMapLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center text-sm text-green-600 dark:text-green-400 hover:underline mt-1"
@@ -241,16 +251,17 @@ export default function RaceSchedule({ event: eventProp }) {
                   </a>
                 )}
 
-                {RACE_DIRECTOR_NAME && RACE_DIRECTOR_PHONE && (
+                {contactName && contactPhone && (
                   <div className="text-sm text-gray-700 dark:text-gray-300 mt-6">
-                    For any questions, contact:{" "}
-                    <span className="font-semibold">{RACE_DIRECTOR_NAME}</span>{" "}
+                    For any questions, contact{" "}
+                    {contactTitle}:{" "}
+                    <span className="font-semibold">{contactName}</span>{" "}
                     at{" "}
                     <a
-                      href={`tel:${RACE_DIRECTOR_PHONE}`}
+                      href={`tel:${contactPhone}`}
                       className="text-green-600 dark:text-green-400 underline"
                     >
-                      {RACE_DIRECTOR_PHONE}
+                      {contactPhone}
                     </a>
                   </div>
                 )}
