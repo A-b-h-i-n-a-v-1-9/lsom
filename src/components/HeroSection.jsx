@@ -33,10 +33,10 @@ export default function HeroSection({ event: eventProp }) {
 
   return (
     <section className="relative h-screen bg-black overflow-hidden">
-      {/* Background Image */}
+      {/* 1st bg: image provided by the running group */}
       {BACKGROUND_IMAGE && (
         <div
-          className="absolute inset-0 bg-cover bg-center brightness-75"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url('${BACKGROUND_IMAGE}')`,
             backgroundAttachment: "fixed",
@@ -44,10 +44,13 @@ export default function HeroSection({ event: eventProp }) {
         />
       )}
 
-      {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      {/* 2nd bg: dark only in center (narrow band); left & right show image as-is */}
+      <div
+        className="absolute inset-y-0 left-[20%] right-[20%] bg-black/90"
+        aria-hidden
+      />
 
-      {/* Hero Content */}
+      {/* Hero Content on top of the central dark patch */}
       <div className="relative h-full flex items-center justify-center px-6">
         <div className="max-w-3xl w-full text-center space-y-8">
           {/* Title */}

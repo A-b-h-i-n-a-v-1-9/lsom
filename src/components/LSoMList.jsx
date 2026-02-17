@@ -45,18 +45,22 @@ export default function LSoMList() {
               >
                 {/* Image Background with Text Overlay */}
                 <div className="relative h-64 overflow-hidden">
+                  {/* 1st bg: image provided by the running group */}
                   {evt.backgroundImage && (
                     <img
                       src={evt.backgroundImage}
                       alt=""
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   )}
-                  {/* Dark overlay gradient in center for text readability (the "dark spot") */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black/60" />
-                  
-                  {/* Text Overlay - positioned in the center dark area */}
-                  <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
+                  {/* 2nd bg: dark only in center (narrow band); left & right show image as-is */}
+                  <div
+                    className="absolute inset-y-0 left-[22%] right-[22%] bg-black/90"
+                    aria-hidden
+                  />
+                  {/* Text on top of the central dark patch */}
+                  <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center pointer-events-none">
+                    <div className="pointer-events-auto">
                     {isNext && (
                       <span className="inline-block px-3 py-0.5 text-xs font-semibold text-green-400 bg-black/40 backdrop-blur-sm rounded-full mb-3">
                         Next
@@ -91,6 +95,7 @@ export default function LSoMList() {
                         {evt.hostGroup.title}
                       </p>
                     )}
+                    </div>
                   </div>
                 </div>
 
