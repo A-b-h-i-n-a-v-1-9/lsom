@@ -45,18 +45,22 @@ export default function LSoMList() {
               >
                 {/* Image Background with Text Overlay */}
                 <div className="relative h-64 overflow-hidden">
+                  {/* 1st bg: image provided by the running group */}
                   {evt.backgroundImage && (
                     <img
                       src={evt.backgroundImage}
                       alt=""
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   )}
-                  {/* Dark overlay gradient in center for text readability (the "dark spot") */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black/60" />
-                  
-                  {/* Text Overlay - positioned in the center dark area */}
-                  <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
+                  {/* 2nd bg: dark only in center (narrow band); left & right show image as-is */}
+                  <div
+                    className="absolute inset-y-0 left-[22%] right-[22%] bg-black/90"
+                    aria-hidden
+                  />
+                  {/* Text on top of the central dark patch */}
+                  <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center pointer-events-none">
+                    <div className="pointer-events-auto">
                     {isNext && (
                       <span className="inline-block px-3 py-0.5 text-xs font-semibold text-green-400 bg-black/40 backdrop-blur-sm rounded-full mb-3">
                         Next
@@ -67,9 +71,14 @@ export default function LSoMList() {
                         Next&apos;s next
                       </span>
                     )}
-                    <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-0.5">
                       {evt.locationName}
                     </h3>
+                    {evt.subheading && (
+                      <p className="text-yellow-400/95 text-lg md:text-xl font-medium mb-2">
+                        {evt.subheading}
+                      </p>
+                    )}
                     <p className="text-yellow-400 text-sm md:text-base mb-1 font-medium">
                       {date.toLocaleDateString("en-IN", {
                         weekday: "long",
@@ -86,6 +95,7 @@ export default function LSoMList() {
                         {evt.hostGroup.title}
                       </p>
                     )}
+                    </div>
                   </div>
                 </div>
 

@@ -6,6 +6,7 @@
  * Schema (per event):
  * - id: string (unique slug for routing, e.g. "pashan-2026-03")
  * - locationName: string
+ * - subheading: string (optional, e.g. "5th Edition", shown on second line below title)
  * - placeName: string
  * - locationLink: string (maps URL)
  * - eventDate: string (ISO datetime)
@@ -63,14 +64,15 @@ export const lsomEvents = [
   },
   {
     id: "ncrunners-2026-03",
-    locationName: "Nanded City LSoM (5th Edition)",
+    locationName: "Nanded City LSoM",
+    subheading: "5th Edition",
     placeName: "Kridangan, Nanded City",
     locationLink: "https://maps.app.goo.gl/iSsFL27UaYctUUpN8",
     eventDate: "2026-03-29T05:30:00",
     flagOffTime: "5:45 A.M.",
     registerLink: "",
     registerText: "Register Now",
-    backgroundImage: "assets/Balewadi.jpg",
+    backgroundImage: "assets/ncrunnersBg.jpeg",
     startTimes: {
       "15 Km ": "5:45",
       "10 Km ": "6:15",
@@ -79,17 +81,15 @@ export const lsomEvents = [
     },
     routeMapLink: "",
     routeMapLinks: {
-    "15 Km ": "https://www.plotaroute.com/route/2889597",
-    "10 Km ": "https://www.plotaroute.com/route/2889720",
-    "5 Km ": "https://www.plotaroute.com/route/2889731",
-    "3 Km ": "https://www.plotaroute.com/route/2889737",
-  },
+      "15 Km ": "https://www.plotaroute.com/route/2889597",
+      "10 Km ": "https://www.plotaroute.com/route/2889720",
+      "5 Km ": "https://www.plotaroute.com/route/2889731",
+      "3 Km ": "https://www.plotaroute.com/route/2889737",
+    },
     raceDirectorName: "Shri Swapnil Nandgaonkar ",
     raceDirectorPhone: "93717 81809",
     assistantRaceDirectorName: "Smt Pooja Gogave",
     assistantRaceDirectorPhone: "96046 39425",
-
-
     hostGroup: {
       title: "Host - NCRunners",
       image: "assets/ncrunners.jpeg",
