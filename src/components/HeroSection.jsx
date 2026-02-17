@@ -76,7 +76,7 @@ export default function HeroSection({ event: eventProp }) {
 
           {/* CTA + Social */}
           <div className="flex flex-col items-center gap-4 pt-4">
-            {REGISTER_LINK && (
+            {REGISTER_LINK ? (
               <a
                 href={REGISTER_LINK}
                 target="_blank"
@@ -85,6 +85,10 @@ export default function HeroSection({ event: eventProp }) {
               >
                 {REGISTER_TEXT}
               </a>
+            ) : (
+              <div className="bg-gray-600 text-white font-bold px-10 py-4 rounded-full text-lg shadow-lg">
+                Registration not yet open
+              </div>
             )}
 
             {/* Social Buttons Side-by-Side */}

@@ -224,7 +224,7 @@ export default function RaceSchedule({ event: eventProp }) {
                   <li className="flex items-start">✔ Bring your own water bottle</li>
                 </ul>
 
-                {REGISTER_LINK && (
+                {REGISTER_LINK ? (
                     <a
                       href={REGISTER_LINK}
                       target="_blank"
@@ -247,6 +247,10 @@ export default function RaceSchedule({ event: eventProp }) {
                       />
                     </svg>
                   </a>
+                ) : (
+                  <div className="inline-flex items-center justify-center w-full md:w-auto bg-gray-500 text-white px-8 py-3 rounded-lg font-bold mt-6">
+                    Registration not yet open
+                  </div>
                 )}
 
                 {(hasRD || hasARD) && (

@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getNextEvent } from "../data/lsomEvents";
 
 export default function Navbar() {
-  const nextEvent = getNextEvent();
-  const REGISTER_LINK =
-    nextEvent?.registerLink ?? import.meta.env.VITE_REGISTER_LINK ?? "#home";
-  const REGISTER_TEXT =
-    nextEvent?.registerText ?? import.meta.env.VITE_REGISTER_TEXT ?? "Register Now";
-  const isExternalRegister = REGISTER_LINK.startsWith("http");
-
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -87,30 +79,6 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-
-            <a
-              href={REGISTER_LINK}
-              {...(isExternalRegister
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="ml-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-1"
-            >
-              {REGISTER_TEXT}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -168,31 +136,6 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href={REGISTER_LINK}
-                {...(isExternalRegister
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                {REGISTER_TEXT}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
