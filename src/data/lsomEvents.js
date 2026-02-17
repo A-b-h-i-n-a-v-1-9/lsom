@@ -42,15 +42,27 @@ export const lsomEvents = [
     registerLink: "https://konfhub.com/pashanlsom2026",
     registerText: "Register Now",
     backgroundImage: "assets/Balewadi.jpg",
+
     startTimes: {
       "15 Km ": "6:00",
       "10 Km ": "6:15",
       "5 Km Fun Run": "6:30",
       "3 Km Walk": "6:45",
     },
+
+    // Fallback map (if specific not found)
     routeMapLink: "https://maps.app.goo.gl/zgogsm3noMcSPFLLA",
+
+    routeMapLinks: {
+      "15 Km ": "https://www.plotaroute.com/route/3227693?units=km",
+      "10 Km ": "https://www.plotaroute.com/route/3227710?units=km",
+      "5 Km Fun Run": "https://www.plotaroute.com/route/3227708?units=km",
+      "3 Km Walk": "https://www.plotaroute.com/route/3227698?units=km",
+    },
+
     raceDirectorName: "Bhupendra Bahadur Singh",
     raceDirectorPhone: "+919236165030",
+
     hostGroup: {
       title: "Host - Pashan Running Group",
       image: "assets/Pashan_LSoM_Image_2026_2.jpeg",
@@ -62,6 +74,7 @@ export const lsomEvents = [
         "Run strong with Pashan Running Group and stay motivated every step of the way. To join us, please contact the group coordinator.",
     },
   },
+
   {
     id: "ncrunners-2026-03",
     locationName: "Nanded City LSoM",
@@ -73,23 +86,28 @@ export const lsomEvents = [
     registerLink: "",
     registerText: "Register Now",
     backgroundImage: "assets/ncrunnersBg.jpeg",
+
     startTimes: {
       "15 Km ": "5:45",
       "10 Km ": "6:15",
       "5 Km Fun Run": "6:30",
       "3 Km Walk": "6:45",
     },
+
     routeMapLink: "",
+
     routeMapLinks: {
       "15 Km ": "https://www.plotaroute.com/route/2889597",
       "10 Km ": "https://www.plotaroute.com/route/2889720",
-      "5 Km ": "https://www.plotaroute.com/route/2889731",
-      "3 Km ": "https://www.plotaroute.com/route/2889737",
+      "5 Km Fun Run": "https://www.plotaroute.com/route/2889731",
+      "3 Km Walk": "https://www.plotaroute.com/route/2889737",
     },
-    raceDirectorName: "Shri Swapnil Nandgaonkar ",
-    raceDirectorPhone: "93717 81809",
+
+    raceDirectorName: "Shri Swapnil Nandgaonkar",
+    raceDirectorPhone: "9371781809",
     assistantRaceDirectorName: "Smt Pooja Gogave",
-    assistantRaceDirectorPhone: "96046 39425",
+    assistantRaceDirectorPhone: "9604639425",
+
     hostGroup: {
       title: "Host - NCRunners",
       image: "assets/ncrunners.jpeg",
