@@ -64,6 +64,11 @@ export default function HeroSection({ event: eventProp }) {
             <p className="text-yellow-400 font-semibold text-3xl">
               {locationName}
             </p>
+            {event?.subheading && (
+              <p className="text-yellow-400/95 text-xl md:text-2xl font-medium">
+                {event.subheading}
+              </p>
+            )}
           </div>
 
           {/* CTA + Social */}

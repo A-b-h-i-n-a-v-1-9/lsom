@@ -67,9 +67,14 @@ export default function LSoMList() {
                         Next&apos;s next
                       </span>
                     )}
-                    <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-0.5">
                       {evt.locationName}
                     </h3>
+                    {evt.subheading && (
+                      <p className="text-yellow-400/95 text-lg md:text-xl font-medium mb-2">
+                        {evt.subheading}
+                      </p>
+                    )}
                     <p className="text-yellow-400 text-sm md:text-base mb-1 font-medium">
                       {date.toLocaleDateString("en-IN", {
                         weekday: "long",

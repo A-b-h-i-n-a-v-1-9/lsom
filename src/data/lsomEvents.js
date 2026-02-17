@@ -6,6 +6,7 @@
  * Schema (per event):
  * - id: string (unique slug for routing, e.g. "pashan-2026-03")
  * - locationName: string
+ * - subheading: string (optional, e.g. "5th Edition", shown on second line below title)
  * - placeName: string
  * - locationLink: string (maps URL)
  * - eventDate: string (ISO datetime)
@@ -63,7 +64,8 @@ export const lsomEvents = [
   },
   {
     id: "ncrunners-2026-03",
-    locationName: "Nanded City LSoM (5th Edition)",
+    locationName: "Nanded City LSoM",
+    subheading: "5th Edition",
     placeName: "Kridangan, Nanded City",
     locationLink: "https://maps.app.goo.gl/iSsFL27UaYctUUpN8",
     eventDate: "2026-03-29T05:30:00",
