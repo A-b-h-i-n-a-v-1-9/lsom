@@ -70,7 +70,7 @@ export const lsomEvents = [
     flagOffTime: "5:45 A.M.",
     registerLink: "",
     registerText: "Register Now",
-    backgroundImage: "assets/Balewadi.jpg",
+    backgroundImage: "assets/ncrunners.jpeg",
     startTimes: {
       "15 Km ": "5:45",
       "10 Km ": "6:15",
