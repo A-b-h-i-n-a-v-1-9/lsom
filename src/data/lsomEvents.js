@@ -41,7 +41,7 @@ export const lsomEvents = [
     flagOffTime: "6:00 A.M.",
     registerLink: "https://konfhub.com/pashanlsom2026",
     registerText: "Register Now",
-    backgroundImage: "assets/Balewadi.jpg",
+    backgroundImage: "/assets/Pashan_LSoM_Image_2026_2.jpeg",
 
     startTimes: {
       "15 Km ": "6:00",
