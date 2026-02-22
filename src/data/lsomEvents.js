@@ -45,9 +45,9 @@ export const lsomEvents = [
 
     startTimes: {
       "15 Km ": "6:00",
-      "10 Km ": "6:15",
-      "5 Km Fun Run": "6:30",
-      "3 Km Walk": "6:45",
+      "10 Km ": "6:30",
+      "5 Km Fun Run": "7:00",
+      "3 Km Walk": "7:00",
     },
 
     // Fallback map (if specific not found)
