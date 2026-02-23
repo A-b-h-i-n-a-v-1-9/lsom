@@ -82,7 +82,7 @@ export default function LSoMList() {
             const date = new Date(evt.eventDate);
             const isNext = index === 0;
             const isSecond = index === 1;
-            
+
             return (
               <div
                 key={evt.id}
@@ -91,11 +91,10 @@ export default function LSoMList() {
                 {/* Status Badge - Floating */}
                 {(isNext || isSecond) && (
                   <div className="absolute top-4 right-4 z-20">
-                    <span className={`inline-block px-4 py-1.5 text-xs font-bold rounded-full shadow-lg backdrop-blur-sm ${
-                      isNext 
-                        ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' 
+                    <span className={`inline-block px-4 py-1.5 text-xs font-bold rounded-full shadow-lg backdrop-blur-sm ${isNext
+                        ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
                         : 'bg-gray-900/90 text-gray-200 border border-gray-700'
-                    }`}>
+                      }`}>
                       {isNext ? '⚡ NEXT RUN' : '↝ UP NEXT'}
                     </span>
                   </div>
@@ -111,10 +110,10 @@ export default function LSoMList() {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   )}
-                  
+
                   {/* Gradient Overlay - More sophisticated */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
-                  
+
                   {/* Decorative Elements */}
                   <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-3xl" />
@@ -134,9 +133,16 @@ export default function LSoMList() {
                     )}
 
                     {/* Location Name */}
-                    <h3 className="text-3xl md:text-4xl font-black mb-2">
+                    <h3 className="text-3xl md:text-4xl font-black leading-tight">
                       {evt.locationName}
                     </h3>
+
+                    {/* ⭐ Show “In association with Fit Nation Gym” ONLY for Pashan */}
+                    {evt.id === "pashan-2026-03" && (
+                      <p className="text-green-300 text-md md:text-lg font-medium mt-1">
+                        In association with Fit Nation Gym
+                      </p>
+                    )}
 
                     {/* Subheading */}
                     {evt.subheading && (
@@ -180,7 +186,7 @@ export default function LSoMList() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </Link>
-                    
+
                     {evt.registerLink && (
                       <a
                         href={evt.registerLink}
@@ -203,8 +209,8 @@ export default function LSoMList() {
 
         {/* View All Link */}
         <div className="text-center mt-12">
-          <Link 
-            to="/events" 
+          <Link
+            to="/events"
             className="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold hover:gap-3 transition-all"
           >
             <span>View All Events</span>

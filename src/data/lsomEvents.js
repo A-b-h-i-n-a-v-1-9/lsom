@@ -35,6 +35,7 @@ export const lsomEvents = [
   {
     id: "pashan-2026-03",
     locationName: "Pashan LSOM",
+    associateTag: "In association with Fit Nation Gym",
     placeName: "NCL Cricket Ground",
     locationLink: "https://maps.app.goo.gl/TFgCGPTJYugVSRBL9",
     eventDate: "2026-03-01T06:00:00",
@@ -73,6 +74,12 @@ export const lsomEvents = [
       quote:
         "Run strong with Pashan Running Group and stay motivated every step of the way. To join us, please contact the group coordinator.",
     },
+    associatePartners: [
+  {
+    title: "Fit Nation Gym – Pashan",
+    logo: "/assets/fitnation.jpeg"
+  }
+]
   },
 
   {
