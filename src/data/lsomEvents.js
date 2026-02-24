@@ -90,7 +90,7 @@ export const lsomEvents = [
     locationLink: "https://maps.app.goo.gl/iSsFL27UaYctUUpN8",
     eventDate: "2026-03-29T05:30:00",
     flagOffTime: "5:45 A.M.",
-    registerLink: "",
+    registerLink: "https://events.trikayafit.com/event-details/nanded-city-lsom-2026/34",
     registerText: "Register Now",
     backgroundImage: "assets/ncrunnersBg.jpeg",
 
