@@ -13,7 +13,8 @@
     "deploy": "gh-pages -d dist -r https://github.com/A-b-h-i-n-a-v-1-9/lsom.git"
   },
   "dependencies": {
-    "framer-motion": "^12.34.2",
+    "canvas-confetti": "^1.9.4",
+    "framer-motion": "^12.34.3",
     "lucide-react": "^0.536.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

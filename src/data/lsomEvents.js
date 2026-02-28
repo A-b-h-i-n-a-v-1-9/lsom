@@ -128,21 +128,53 @@ export const lsomEvents = [
   },
 ];
 
-/** Upcoming events only, sorted by date (next first) */
+/** Check if event is within 1 day of the event date */
+export function isWithinOneDay(eventDate) {
+  const now = new Date();
+  const event = new Date(eventDate);
+  const timeDiff = event.getTime() - now.getTime();
+  const daysDiff = timeDiff / (1000 * 3600 * 24);
+  return daysDiff <= 1 && daysDiff > 0;
+}
+
+/** Get event with modified registration link if within 1 day */
+export function getEventWithRegistrationStatus(event) {
+  if (!event) return null;
+  
+  return {
+    ...event,
+    registerLink: isWithinOneDay(event.eventDate) 
+      ? `http://localhost:5173/#/event/${event.id}/closed`
+      : event.registerLink,
+    registerText: isWithinOneDay(event.eventDate)
+      ? "Register Now"
+      : event.registerText
+  };
+}
+
+/** Upcoming events only, sorted by date (next first) with registration status */
 export function getUpcomingEvents() {
   const now = new Date();
   return [...lsomEvents]
     .filter((e) => new Date(e.eventDate) >= now)
-    .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
+    .sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate))
+    .map(event => getEventWithRegistrationStatus(event));
 }
 
-/** Next single event (soonest upcoming), or null */
+/** Next single event (soonest upcoming) with registration status, or null */
 export function getNextEvent() {
   const upcoming = getUpcomingEvents();
   return upcoming[0] ?? null;
 }
 
-/** Get event by id */
+/** Get event by id with registration status */
 export function getEventById(id) {
-  return lsomEvents.find((e) => e.id === id) ?? null;
+  const event = lsomEvents.find((e) => e.id === id) ?? null;
+  return getEventWithRegistrationStatus(event);
+}
+
+/** Check if registration is closed for an event */
+export function isRegistrationClosed(eventId) {
+  const event = getEventById(eventId);
+  return event ? isWithinOneDay(event.eventDate) : false;
 }
