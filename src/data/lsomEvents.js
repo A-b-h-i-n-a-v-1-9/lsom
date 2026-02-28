@@ -144,7 +144,7 @@ export function getEventWithRegistrationStatus(event) {
   return {
     ...event,
     registerLink: isWithinOneDay(event.eventDate) 
-      ? `http://localhost:5173/#/event/${event.id}/closed`
+      ? `lsom.in/#/event/${event.id}/closed`
       : event.registerLink,
     registerText: isWithinOneDay(event.eventDate)
       ? "Register Now"
