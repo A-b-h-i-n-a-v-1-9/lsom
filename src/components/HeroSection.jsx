@@ -94,7 +94,7 @@ export default function HeroSection({ event: eventProp }) {
             {/* Social Buttons Side-by-Side */}
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <a
-                href="https://www.instagram.com/pashanrunning?igsh=YzljYTk1ODg3Zg=="
+                href="https://www.instagram.com/nandedcityrunners"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full text-white border border-white/20 hover:border-pink-500 hover:text-pink-400 transition"
